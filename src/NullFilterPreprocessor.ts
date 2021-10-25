@@ -2,7 +2,7 @@ import {DatasetAP, LocalityMap, Preprocessor, SHARED_TYPES, TraceAP} from "bugfi
 import {CommitPath} from "bugfinder-localityrecorder-commitpath";
 import {inject, injectable, optional} from "inversify";
 import {BUGFINDER_COMMITPATH_PREDECESSORS_PREPROCESSOR_NULLFILTER_TYPES} from "./TYPES";
-import {SonarQubePredecessorMeasurement} from "bugfinder-commitpath-quantifier-sonarqubepredecessors/dist/sonarQubePredecessorsQuantifier/measurement/SonarQubePredecessorMeasurement";
+import {SonarQubePredecessorMeasurement} from "bugfinder-commitpath-quantifier-sonarqubepredecessors";
 import {SonarQubeMeasures} from "bugfinder-commitpath-quantifier-sonarqube";
 import {Logger} from "ts-log";
 import _ from "underscore"
