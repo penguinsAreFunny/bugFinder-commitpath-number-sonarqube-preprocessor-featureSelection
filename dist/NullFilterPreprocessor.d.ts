@@ -1,4 +1,4 @@
-import { DatasetAP, LocalityMap, Preprocessor, TraceAP } from "bugfinder-framework";
+import { Dataset, LocalityMap, Preprocessor, TraceAP } from "bugfinder-framework";
 import { CommitPath } from "bugfinder-localityrecorder-commitpath";
 import { SonarQubePredecessorMeasurement } from "bugfinder-commitpath-quantifier-sonarqubepredecessors";
 import { Logger } from "ts-log";
@@ -8,7 +8,7 @@ export declare class NullFilterPreprocessor implements Preprocessor<CommitPath, 
     description: string;
     ignoreFeatures?: string[];
     ignorePaths?: RegExp[];
-    preprocess(quantifications: LocalityMap<CommitPath, SonarQubePredecessorMeasurement>, annotations: LocalityMap<CommitPath, number>): Promise<DatasetAP>;
+    preprocess(quantifications: LocalityMap<CommitPath, SonarQubePredecessorMeasurement>, annotations: LocalityMap<CommitPath, number>): Promise<Dataset>;
     private transformInfinityValues;
     private setFeatureNames;
     private setDataAndTarget;
