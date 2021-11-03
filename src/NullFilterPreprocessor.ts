@@ -1,4 +1,4 @@
-import {DatasetAP, LocalityMap, Preprocessor, SHARED_TYPES, TraceAP} from "bugfinder-framework";
+import {Dataset, LocalityMap, Preprocessor, SHARED_TYPES, TraceAP} from "bugfinder-framework";
 import {CommitPath} from "bugfinder-localityrecorder-commitpath";
 import {inject, injectable, optional} from "inversify";
 import {BUGFINDER_COMMITPATH_PREDECESSORS_PREPROCESSOR_NULLFILTER_TYPES} from "./TYPES";
@@ -26,7 +26,7 @@ export class NullFilterPreprocessor implements Preprocessor<CommitPath, number, 
     ignorePaths?: RegExp[]
 
     async preprocess(quantifications: LocalityMap<CommitPath, SonarQubePredecessorMeasurement>,
-                     annotations: LocalityMap<CommitPath, number>): Promise<DatasetAP> {
+                     annotations: LocalityMap<CommitPath, number>): Promise<Dataset> {
         this.logger?.info("Preprocessing quantifications and annotations. Generating dataset...")
         // @formatter:off
         const data        : Array<number[]> = []
@@ -54,7 +54,7 @@ export class NullFilterPreprocessor implements Preprocessor<CommitPath, number, 
         // validate calculated data and target
         this.validate(data, target, featureNames)
 
-        const dataset = new DatasetAP(data, target, keys, featureNames, targetNames, this.description, this.traceAP)
+        const dataset = new Dataset(data, target, keys, featureNames, targetNames, this.description, this.traceAP)
         return dataset
     }
 
